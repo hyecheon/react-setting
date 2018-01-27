@@ -18,3 +18,5 @@ function reducer(state = initialState, action) {
 //reducer functions
 
 //exports
+
+export default reducer;
