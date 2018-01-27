@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import "./styles.scss";
 import Footer from '../Footer'
 import Navigation from "../Navigation";
+import Sample from "../Sample";
 
 
 const App = props => [
@@ -16,7 +17,7 @@ App.propTypes = {};
 const PublicRoutes = props => (
 	<Switch>
 		<Route exact path={"/"} render={() => 'home'}/>
-		<Route exact path={"/sample"} render={() => 'sample'}/>
+		<Route exact path={"/sample"} component={Sample}/>
 	</Switch>
 );
 

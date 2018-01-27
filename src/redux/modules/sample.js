@@ -1,22 +1,66 @@
-//import
+// imports
 
-//action
+// actions
 
-//action creators
+const SAMPLE = "SAMPLE";
 
-//initial state
+// action creators
+
+function setSample(input) {
+	return {
+		type: SAMPLE,
+		input
+	};
+}
+
+// API Actions
+
+function sampleApi(input, message) {
+	return (dispatch, getState) => {
+		/*fetch(`/sample/${input}/comments/`, {
+			method: "POST",
+			headers: {
+				"Content-Type": 'application/json'
+			},
+		}).then(response => response.json())
+			.then(json => {
+				dispatch(setSample(json));
+			});*/
+		dispatch(setSample(input))
+	};
+}
+
+// Initial State
+
 const initialState = {};
 
-//reducer
+// Reducer
+
 function reducer(state = initialState, action) {
 	switch (action.type) {
+		case SAMPLE:
+			return applySetSample(state, action);
 		default:
 			return state;
 	}
 }
 
-//reducer functions
+// Reducer Functions
 
-//exports
+function applySetSample(state, action) {
+	return {
+		...state,
+	};
+}
+
+// Exports
+
+const actionCreators = {
+	sampleApi
+};
+
+export {actionCreators};
+
+// Export reducer by default
 
 export default reducer;
