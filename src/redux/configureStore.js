@@ -2,6 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk'
 import {routerReducer, routerMiddleware} from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
+import {i18nState} from 'redux-i18n';
 import sample from './modules/sample'//import 리듀서
 
 const env = process.env.NODE_ENV;
@@ -18,11 +19,12 @@ if (env === "development") {
 
 const reducer = combineReducers({
 	routing: routerReducer,
+	i18nState,
 	sample
 });
 
 let store = initialState => createStore(reducer, applyMiddleware(...middleware));
 
-export { history };
+export {history};
 
 export default store();
