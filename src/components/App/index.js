@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
-import styles from './styles.scss';
+import {connect} from 'react-redux';
+import Container from "./container";
 
-class App extends Component {
-	render() {
-		return (
-			<div className={styles.App}>
-			</div>
-		);
-	}
-}
+const mapStateToProps = (state, ownProps) => {
+	const {routing: {location}} = state;
+	return {
+		pathname: location.pathname
+	};
+};
 
-export default App;
+export default connect(mapStateToProps)(Container)
